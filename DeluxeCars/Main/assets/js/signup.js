@@ -6,6 +6,10 @@ let nome = document.querySelector('#nome')
 let labelNome = document.querySelector('#labelNome')
 let validNome = false
 
+let email = document.querySelector('#email')
+let labelEmail = document.querySelector('#labelEmail')
+let validEmail = false
+
 let usuario = document.querySelector('#usuario')
 let labelUsuario = document.querySelector('#labelUsuario')
 let validUsuario = false
@@ -32,6 +36,20 @@ nome.addEventListener('keyup', () => {
     labelNome.innerHTML = 'Nome'
     nome.setAttribute('style', 'border-color: green')
     validNome = true
+  }
+})
+
+email.addEventListener('keyup', () => {
+  if(email.value.length <= 5 || !/@/.test(email.value) || !/.com$/.test(email.value)){
+    labelEmail.setAttribute('style', 'color: red')
+    labelEmail.innerHTML = 'Insira um email válido'
+    email.setAttribute('style', 'border-color: red')
+    validEmail = false
+  } else {
+    labelEmail.setAttribute('style', 'color: green')
+    labelEmail.innerHTML = 'Email'
+    email.setAttribute('style', 'border-color: green')
+    validEmail = true
   }
 })
 
