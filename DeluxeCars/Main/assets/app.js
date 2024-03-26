@@ -1,51 +1,56 @@
-const express = require ('express'); // express (gerencia rotas)
-const app = express ();
-const bodyParser = require('body-parser');
-const db = require('./models/db')
-const User = require ('./models/User')
-const path = require('path');
+const express = require("express");
+const app = express();
+var bodyParser = require("body-parser");
+const db = require("./models/db");
+const User = require("./models/User");
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(express.static(__dirname + "/public"));
 
-app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname + "/index.html"));
+// --------------------------- rota para INDEX ---------------------------
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + "/index.html");
 });
 
-// app.get("/", function(req, res) {
-//     res.sendFile(__dirname + "/index.html")
-// });
+// --------------------------- rota para SIGNIN / VALIDACADASTRO ---------------------------
+app.get("/html/signin", (req, res) => {
+  res.sendFile(__dirname + "/signin.html");
+});
+
+app.post("/html/validacadastro", async (req, res) => {
+    const { user, password } = req.body;
+    const vUser = await User.findOne({ where: { user } });
+    if (!vUser || vUser.password !== password) {
+      return res.status(401).json({ message: "Credenciais inválidas" });
+    }
+    res.json({ message: "Login bem-sucedido" });
+  });
+  // res.redirect("/html/signin.html");
 
 
-// app.post("./html/cadastrar", async function  (req, res) => {
-// 	res.send("Página cadastrar");
-// 	});
+// --------------------------- rota para SIGNUP / CADASTRAR ---------------------------
+app.get("/html", (req, res) => {
+  res.sendFile(__dirname + "/signup");
+});
 
-app.post('/cadastrar', async function (req,res){
-    User.create({
-        nome: req.body.labelNome,
-        usuario: req.body.labelUsuario,
-        email: req.body.labelEmail,
-        senha: req.body.labelSenha
-
-    }).then(function(){
-        msgSuccess.setAttribute('style', 'display: block')
-        msgSuccess.innerHTML = '<strong>Cadastrando usuário...</strong>'
-        msgError.setAttribute('style', 'display: none')
-        msgError.innerHTML = ''
-
-    }).catch(function(erro){
-        msgError.setAttribute('style', 'display: block')
-        msgError.innerHTML = '<strong>Preencha todos os campos corretamente antes de cadastrar</strong>'
-        msgSuccess.innerHTML = ''
-        msgSuccess.setAttribute('style', 'display: none')
+app.post("/html/cadastrar", (req, res) => {
+  User.create({
+    name: req.body.nome,
+    user: req.body.usuario,
+    email: req.body.email,
+    password: req.body.senha,
+  })
+    .then(function () {
+      res.redirect("/html/signin.html");
     })
+    .catch(function () {
+      res.status(500).send("Erro ao processar o cadastro.");
     });
-    
+});
 
+app.listen(8080, () => {
+  console.log("http://localhost:8080");
+});
 
-
-app.listen (8080, () => {
-	console.log("http://localhost:8080");
-	
-	});
+module.exports = app;
