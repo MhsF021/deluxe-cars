@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+:root {
+  --pink: #e03cd3;
+  --lightpink: #e7a2f0;
+  --gray: #e5e4fcce;
+  --purple: #35007c;
+  --lightpurple: #a39ff1;
+  --oceanblue: #09F6F4;
+  --darkblue: #0a89ce;
+}
+body {
+  background-image: url("../images/bg-signup.jpg");
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  width: 400px;
+  align-items: center;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--purple)
+}
+
+.label-float input{
+  color: white;
+  width: 100%;
+  padding: 5px 5px;
+  display: inline-block;
+  border: 0;
+  border-bottom: 2px solid var(--purple);
+  background-color: transparent;
+  outline: none;
+  min-width: 180px;
+  font-size: 16px;
+  transition: all .3s ease-out;
+  border-radius: 0;
+
+}
+
+.label-float{
+  position: relative;
+  padding-top: 13px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.label-float input:focus{
+  border-bottom: 2px solid white;
+}
+
+.label-float label{
+  color: var(--purple);
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 13px;
+  transition: all .3s ease-out;
+}
+
+.label-float input:focus + label,
+.label-float input:valid + label{
+  font-size: 13px;
+  margin-top: 0;
+  color: white;
+}
+
+button{
+  background-color: transparent;
+  border-color: var(--lightpurple);
+  color: var(--lightpurple);
+  width: 50%;
+  padding: 7px;
+  font-weight: bold;
+  font-size: 12pt;
+  margin-top: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: all .4s ease-out;
+}
+
+button:hover{
+  background-color: var(--lightpurple);
+  color: var(--purple);
+  border-color: var(--lightpurple);
+}
+
+.justify-center{
+  display: flex;
+  justify-content: center;
+}
+
+.fa-eye{
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  cursor: pointer;
+  color: var(--purple);
+}
+
+#msgError{
+  text-align: center;
+  color: #ffffff;
+  background-color: red;
+  padding: 10px;
+  border-radius: 4px;
+  display: none;
+}
+
+#msgSuccess{
+  text-align: center;
+  color: #ffffff;
+  background-color: lightgreen;
+  padding: 10px;
+  border-radius: 4px;
+  display: none;
+}
+
+
