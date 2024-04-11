@@ -4,10 +4,11 @@ const User = db.define('usuarios', {
     name: {
         type:Sequelize.STRING,
         allowNull: false
+       
     },
 
     user: {
-        type:Sequelize.INTEGER,
+        type:Sequelize.STRING,
         allowNull: false,
         primaryKey: true
     },
@@ -23,8 +24,9 @@ const User = db.define('usuarios', {
     }
 });
 
+
 //Caso não exista, esse comando cria a tabela
-// User.sync()
+// User.sync() 
 
 // Verifica se existem diferenças na tabela. Se existir, realiza a alteração
 // User.sync({alter: true})
