@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+}
+
+:root {
+  --purple: #35007c;
+  --lightpurple: #a39ff1;
+  --gray: #e5e4fcce;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+header {
+  width: 100%;
+  height: 500px;
+  background: var(--purple);
+}
+
+.content {
+  max-width: 1000px;
+  min-width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+nav {
+  width: 100%;
+  height: 125px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 24px;
+  color: var(--lightpurple);
+  cursor: pointer;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+}
+
+nav ul li {
+  color: var(--lightpurple);
+  font-weight: bold;
+  list-style: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+nav ul li a {
+  color: var(--lightpurple);
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: var(--gray);
+}
+nav ul button {
+  bottom: 50%;
+  border: 1px solid var(--lightpurple);
+  background: var(--purple);
+  padding: 8px 40px;
+  cursor: pointer;
+  margin-left: 30px;
+  color: var(--lightpurple);
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul button:hover {
+  background-color: var(--lightpurple);
+  color: var(--purple);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav .profile {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+nav .profile:hover {
+  background-color: transparent;
+}
+nav .profile img {
+  width: 45px;
+  height: 40x;
+  border-radius: 50%;
+  border: 4px solid var(--gray); 
+  background-color: transparent;
+}
+
+.content .header-block {
+  max-width: 1000px;
+  min-width: 300px;
+  height: 450px;
+  background: var(--lightpurple);
+  border-radius: 8px;
+  box-shadow: 1px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 1px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 10;
+  padding: 10px;
+}
+.header-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; 
+}
+
+.header-block .text {
+  position: absolute;
+  bottom: 30%;
+  left: 20%;
+  color: white;
+}
+.header-block .text h1{
+  max-width: 400px;
+  transform: translateX(-50px);
+  transition: transform 0.6s;
+  text-align: justify;
+  margin-bottom: 35px;
+}
+.header-block .text p {
+  font-size: 15px;
+  max-width: 400px;
+  transform: translateX(-50px);
+  transition: transform 0.6s;
+  text-align: justify;
+  margin-bottom: 25px;
+}
+.header-block .text b{
+  color: var(--purple);
+  font-size: 20px;
+}
+.header-block button{
+  margin-right: 35px;
+  top: 100px;
+  left: 500px;
+  display: inline-block; 
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  background: var(--purple);
+  color: var(--lightpurple);
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: 0.2s ease;
+  font-weight: bold;
+  position: relative;
+  
+  
+}
+.header-block button:hover{
+  background: var(--lightpurple);
+  color: var(--purple);
+  font-weight: bold;
+  border: 2px solid var(--purple)
+}
+
+.editable-active {
+  border: 1px solid var(--purple);
+  background-color: transparent;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  height: 250px;
+}
+
+footer .main {
+  margin-top: 500px;
+  width: 100%;
+  height: 200px;
+  background: var(--purple);
+  padding: 20px 10px;
+}
+
+.footer-links {
+  max-width: 1000px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.footer-deluxecars,
+.footer-alugar,
+.footer-contato,
+.footer-social {
+  color: white;
+  height: 100%;
+  min-height: 100px;
+}
+
+.footer-links h4 {
+  margin-bottom: 10px;
+  margin-bottom: 9%;
+}
+
+.footer-links {
+  margin-bottom: 8px;
+}
+
+.main .footer-social img {
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.main .footer-social p {
+  display: inline-block;
+  margin-left: 15px;
+  color: white;
+  margin-bottom: 8%;
+}
+
+footer .last {
+  width: 100%;
+  height: 50px;
+  background: var(--lightpurple);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 576px) {
+  nav ul li {
+    display: none;
+  }
+
+  .header-block img {
+    width: 70%;
+    position: absolute;
+    right: 16%;
+    top: 30%;
+  }
+
+  .header-block .text {
+    position: absolute;
+    bottom: 10%;
+    left: 15;
+  }
+.header-block button{
+    max-width: 150px;
+    min-width: 80px;
+}
+}
