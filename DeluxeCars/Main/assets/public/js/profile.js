@@ -1,27 +1,81 @@
-// const saveUserData = async (req, res) => {
-//     const { nome, usuario, email } = req.body; // Receba os dados do formulário
+if (typeof window !== 'undefined') {
+    window.addEventListener("DOMContentLoaded", function() {
+    
+var btn = document.getElementById('verSenha')
+var btnConfirm = document.getElementById('verConfirmSenha')
 
-//     try {
-//         // Encontre o usuário no banco de dados com base no ID, você pode usar outra condição para encontrar o usuário
-//         const user = await User.findOne({ where: { id: req.user.id } });
+const nome = document.getElementById('nome');
+const labelNome = document.getElementById('labelNome')
 
-//         if (!user) {
-//             return res.status(404).json({ message: 'Usuário não encontrado' });
-//         }
+const email = document.getElementById('email')
+const labelEmail = document.getElementById('labelEmail')
 
-//         // Atualize os campos desejados do usuário
-//         user.nome = nome;
-//         user.usuario = usuario;
-//         user.email = email;
+const senha = document.getElementById('senha')
+const labelSenha = document.getElementById('labelSenha')
 
-//         // Salve as alterações no banco de dados
-//         await user.save();
+const confirmSenha = document.getElementById('confirmSenha')
+const labelConfirmSenha = document.getElementById('labelConfirmSenha')
 
-//         res.status(200).json({ message: 'Dados do usuário atualizados com sucesso' });
-//     } catch (error) {
-//         console.error('Erro ao atualizar dados do usuário:', error);
-//         res.status(500).json({ message: 'Erro ao atualizar dados do usuário' });
-//     }
-// };
+nome.addEventListener('keyup', () => {
+  if (nome.value.length <= 4 || /\d/.test(nome)) {  
+    labelNome.setAttribute('style', 'color: red')
+    nome.setAttribute('style', 'border-color: red')
+    } else {
+    labelNome.setAttribute('style', 'color: green')
+    nome.setAttribute('style', 'border-color: green')
+    }
+})
 
-// module.exports = {saveUserData};
+email.addEventListener('keyup', () => {
+  if(email.value.length < 3 || !email.value.includes('@')){
+    labelEmail.setAttribute('style', 'color: red')
+    email.setAttribute('style', 'border-color: red')
+  } else {
+    labelEmail.setAttribute('style', 'color: green')
+    email.setAttribute('style', 'border-color: green')
+  }
+})
+
+senha.addEventListener('keyup', () => {
+  if(senha.value.length <= 5){
+    labelSenha.setAttribute('style', 'color: red')
+    senha.setAttribute('style', 'border-color: red')
+  } else {
+    labelSenha.setAttribute('style', 'color: green')
+    senha.setAttribute('style', 'border-color: green')
+    
+  }
+})
+
+confirmSenha.addEventListener('keyup', () => {
+  if(senha.value != confirmSenha.value){
+    labelConfirmSenha.setAttribute('style', 'color: red')
+    confirmSenha.setAttribute('style', 'border-color: red')
+  } else {
+    labelConfirmSenha.setAttribute('style', 'color: green')
+    confirmSenha.setAttribute('style', 'border-color: green')
+  }
+})
+
+btn.addEventListener('click', ()=>{
+  var inputSenha = document.getElementById('senha')
+  
+  if(inputSenha.getAttribute('type') === 'password'){
+    inputSenha.setAttribute('type', 'text')
+  } else {
+    inputSenha.setAttribute('type', 'password')
+  }
+})
+
+btnConfirm.addEventListener('click', ()=>{
+  var inputConfirmSenha = document.getElementById('confirmSenha')
+  
+  if(inputConfirmSenha.getAttribute('type') === 'password'){
+    inputConfirmSenha.setAttribute('type', 'text')
+  } else {
+    inputConfirmSenha.setAttribute('type', 'password')
+  }
+})
+
+});
+}

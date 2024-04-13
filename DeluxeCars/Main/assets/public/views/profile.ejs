@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/profile.css" type="text/css" />
     <link rel="shortcut icon"href="/images/dcfavicon.png"type="image/x-icon"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="/css/profile.css" type="text/css" />
     <title>Perfil do Usuário | DeluxeCars</title>
     <script type="text/javascript" src="../js/profile.js"></script>
@@ -18,19 +18,44 @@
           <ul>
             <li>Olá, <%= user.name %></li>
                 <button class="profile">
-                  <img src="/images/profile_defaut.png" alt="Perfil do usuário" />
+                  <img src="/images/profile_defaut.png" alt="Pe rfil do usuário" />
                 </button>                    
           </ul>>
         </nav>
         <div class="header-block">
               <div class="text" id="userProfile">
                 <form action="/views/saveUserData" method="POST"> 
-                  <p><b>Nome:</b> <input type="text" id="nameField" name="nome" placeholder="<%= user.name %>"></input></p>
-                  <p><b>Usuário:</b> <input type="text" id="userField" name="usuario" placeholder="<%= user.user %>"></input></p>
-                  <p><b>Email:</b> <input type="text" id="emailField" name="email" placeholder="<%= user.email %>"></input></p>
+                  
+                  <!-- <p><b>Nome:</b> <input type="text" id="nameField" name="nome" placeholder="<%= user.name %>" required></input></p>
+                  <p><b>Email:</b> <input type="text" id="emailField" name="email" placeholder="<%= user.email %>" required></input></p>
+                  <p><b>Senha:</b> <input type="password" id="senhaField" name="senha" placeholder="**********" required></input></p>
+                  <p><b>Confirme a Senha:</b> <input type="password" id="cfsenhaField" name="cfsenha" placeholder="**********" required></input></p> -->
+                  <div class="label-float">
+                    <input type="text" id="nome" name="nome" placeholder="" required/>
+                    <label id="labelNome" for="nome"><%= user.name %></label>
+                  </div>
+
+                  <div class="label-float">
+                    <input type="text" id="email" name="email" placeholder="" required/>
+                    <label id="labelEmail" for="email"><%= user.email %></label>
+                  </div>
+
+                  <div class="label-float">
+                    <input type="password" id="senha" name="senha" placeholder=" " required/>
+                    <label id="labelSenha" for="senha">Senha</label>
+                    <i id="verSenha" class="fa fa-eye" aria-hidden="true"></i>
+                  </div>
+
+                  <div class="label-float">
+                    <input type="password" id="confirmSenha" name="confirmSenha" placeholder=" " required/>
+                    <label id="labelConfirmSenha" for="confirmSenha">Senha (Confirmação)</label>
+                    <i id="verConfirmSenha" class="fa fa-eye" aria-hidden="true"></i>
+                  </div>
+                  
                   <button class="edit-btn" type="submit">Enviar dados atualizados</button> 
+                  <!-- <button class="del-btn" type="submit">Excluir cadastro</button> -->
               </form>
-              <!-- <button class="dlt" type="submit">Excluir cadastro</button> -->
+              
             </div>
          
       </div>

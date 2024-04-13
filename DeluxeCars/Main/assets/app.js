@@ -129,7 +129,7 @@ app.post('/views/saveUserData', async (req, res) => {
   }
 
   try {
-      // Encontre o usuário no banco de dados com base no usuário da sessão
+
       const user = await User.findOne({ where: { user: pkuser } });
       if (!user) {
           return res.status(404).json({ message: 'Usuário não encontrado' });
@@ -137,6 +137,7 @@ app.post('/views/saveUserData', async (req, res) => {
 
       user.name = req.body.nome;
       user.email = req.body.email;
+      user.password = req.body.senha
 
       await user.save();
 
