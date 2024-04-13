@@ -101,10 +101,10 @@ nav .profile img {
   width: 45px;
   height: 40x;
   border-radius: 50%;
-  border: 4px solid var(--gray); 
+  border: 4px solid var(--gray);
   background-color: transparent;
 }
-.label-float input{
+.label-float input {
   color: white;
   width: 100%;
   padding: 5px 5px;
@@ -114,44 +114,43 @@ nav .profile img {
   background-color: transparent;
   outline: none;
   min-width: 180px;
-  font-size: 16px;
-  transition: all .3s ease-out;
+  font-size: 13px;
+  transition: all 0.3s ease-out;
   border-radius: 0;
 }
 
-.label-float input:focus{
+.label-float input:focus {
   border-bottom: 2px solid white;
 }
 
-.label-float label{
+.label-float label {
   color: var(--purple);
   position: absolute;
   top: 0;
   left: 0;
+  font-size: 13px;
   margin-top: 13px;
-  transition: all .3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .label-float input:focus + label,
-.label-float input:valid + label{
+.label-float input:valid + label {
   font-size: 13px;
   margin-top: 0;
   color: white;
 }
 
 .label-float i {
-
   position: absolute;
   right: 10px;
   top: 50%;
-  transform:  translateY(-60%);
+  transform: translateY(-60%);
   cursor: pointer;
   font-size: 15px;
   color: var(--purple);
-
 }
 
-.label-float{
+.label-float {
   position: relative;
   padding-top: 13px;
   margin-top: 5%;
@@ -175,7 +174,7 @@ nav .profile img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center; 
+  text-align: center;
 }
 
 .header-block .text {
@@ -184,7 +183,7 @@ nav .profile img {
   left: 20%;
   color: white;
 }
-.header-block .text h1{
+.header-block .text h1 {
   max-width: 400px;
   transform: translateX(-50px);
   transition: transform 0.6s;
@@ -199,15 +198,15 @@ nav .profile img {
   text-align: justify;
   margin-bottom: 25px;
 }
-.header-block .text b{
+.header-block .text b {
   color: var(--purple);
   font-size: 20px;
 }
-.header-block button{
+.header-block button {
   margin-right: 35px;
   top: 100px;
   left: 500px;
-  display: inline-block; 
+  display: inline-block;
   width: 150px;
   height: 50px;
   border-radius: 5px;
@@ -219,14 +218,12 @@ nav .profile img {
   transition: 0.2s ease;
   font-weight: bold;
   position: relative;
-  
-  
 }
-.header-block button:hover{
+.header-block button:hover {
   background: var(--lightpurple);
   color: var(--purple);
   font-weight: bold;
-  border: 2px solid var(--purple)
+  border: 2px solid var(--purple);
 }
 
 .editable-active {
@@ -318,8 +315,8 @@ footer .last {
     bottom: 10%;
     left: 15;
   }
-.header-block button{
+  .header-block button {
     max-width: 150px;
     min-width: 80px;
-}
+  }
 }

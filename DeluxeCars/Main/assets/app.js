@@ -2,10 +2,10 @@ const express = require("express");
 const app = express();
 var bodyParser = require("body-parser");
 const path = require("path");
-const cookieParser = require('cookie-parser');
+const cookieParser = require("cookie-parser");
 const ejs = require("ejs");
 const User = require("./models/User");
-const { saveUserData } = require("./public/js/profile")
+const { saveUserData } = require("./public/js/profile");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -14,7 +14,6 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
 app.set("views", path.join(__dirname, "public", "views"));
 app.set("view engine", "ejs");
-
 
 // --------------------------- rota para INDEX ---------------------------
 app.get("/", function (req, res) {
@@ -35,7 +34,7 @@ app.post("/html/signin", async (req, res) => {
   })
     .then((user) => {
       if (user) {
-        res.cookie('pkuser', req.body.usuario);
+        res.cookie("pkuser", req.body.usuario);
         // vUser = true;
         setTimeout(() => {
           res.redirect("/html/mainpage.html");
@@ -54,9 +53,7 @@ app.post("/html/signin", async (req, res) => {
     `);
       }
     })
-    .catch(() => {
-    
-    });
+    .catch(() => {});
 });
 
 // --------------------------- rota para SIGNUP / CADASTRAR ---------------------------
@@ -92,35 +89,34 @@ app.get("/views", (req, res) => {
 
 app.post("/views/profile", async (req, res) => {
   const pkuser = req.cookies.pkuser;
-  if (pkuser){
+  if (pkuser) {
     User.findOne({ where: { user: pkuser } })
-    .then((user) => {
-      if (user) {
-        res.render("profile", { user: user });
-      } else {
-        console.log(error)
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-      console.log(error)
-      res.status(500).send("Erro interno do servidor");
-    });
-} else {
-  console.log("Nome de usuário não encontrado nos cookies");
-  res.send(`
+      .then((user) => {
+        if (user) {
+          res.render("profile", { user: user });
+        } else {
+          console.log(error);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        console.log(error);
+        res.status(500).send("Erro interno do servidor");
+      });
+  } else {
+    console.log("Nome de usuário não encontrado nos cookies");
+    res.send(`
     <script>
       alert("Nome de usuário não encontrado. Por favor, faça o login novamente.");
     </script>
   `);
-}
+  }
+});
 
-}); 
-
-app.post('/views/saveUserData', async (req, res) => {
+app.post("/views/saveUserData", async (req, res) => {
   const pkuser = req.cookies.pkuser;
   if (!pkuser) {
-      return res.status(400).send(`
+    return res.status(400).send(`
           <script>
               alert("Nome de usuário não encontrado. Por favor, faça o login novamente e insira o seu usuário correto.");
               window.location.href = "/html/signin.html";
@@ -129,27 +125,25 @@ app.post('/views/saveUserData', async (req, res) => {
   }
 
   try {
+    const user = await User.findOne({ where: { user: pkuser } });
+    if (!user) {
+      return res.status(404).json({ message: "Usuário não encontrado" });
+    }
 
-      const user = await User.findOne({ where: { user: pkuser } });
-      if (!user) {
-          return res.status(404).json({ message: 'Usuário não encontrado' });
-      }
+    user.name = req.body.nome;
+    user.email = req.body.email;
+    user.password = req.body.senha;
 
-      user.name = req.body.nome;
-      user.email = req.body.email;
-      user.password = req.body.senha
+    await user.save();
 
-      await user.save();
-
-      setTimeout(() => {
+    setTimeout(() => {
       res.redirect("/html/signin.html");
-      }, 1500);
+    }, 1500);
   } catch (error) {
-      console.error('Erro ao atualizar dados do usuário:', error);
-      res.status(500).json({ message: 'Erro ao atualizar dados do usuário' });
+    console.error("Erro ao atualizar dados do usuário:", error);
+    res.status(500).json({ message: "Erro ao atualizar dados do usuário" });
   }
-});  
-
+});
 
 // --------------------------- rota PRINCIPAL ---------------------------
 app.listen(8080, () => {
