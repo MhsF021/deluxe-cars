@@ -63,14 +63,6 @@ nav ul li {
   padding: 10px;
 }
 
-nav ul li a {
-  color: var(--lightpurple);
-  text-decoration: none;
-}
-
-nav ul li a:hover {
-  color: var(--gray);
-}
 nav ul button {
   bottom: 50%;
   border: 1px solid var(--lightpurple);
@@ -89,15 +81,16 @@ nav ul button:hover {
   transition: background-color 0.3s, color 0.3s;
 }
 
-nav .profile {
+nav .perfil {
   border: none;
   background-color: transparent;
   padding: 0;
+  cursor: pointer;
 }
-nav .profile:hover {
+nav .perfil:hover {
   background-color: transparent;
 }
-nav .profile img {
+nav .perfil img {
   width: 45px;
   height: 40x;
   border-radius: 50%;
@@ -121,6 +114,14 @@ nav .profile img {
 
 .label-float input:focus {
   border-bottom: 2px solid white;
+}
+
+.header-block img {
+  width: 35%;
+  position: absolute;
+  right: 7%; 
+  bottom: 13%;
+  border-radius: 50px;
 }
 
 .label-float label {
@@ -179,33 +180,22 @@ nav .profile img {
 
 .header-block .text {
   position: absolute;
-  bottom: 30%;
-  left: 20%;
+  bottom: 10%;
+  left: 10%;
   color: white;
 }
-.header-block .text h1 {
-  max-width: 400px;
-  transform: translateX(-50px);
-  transition: transform 0.6s;
-  text-align: justify;
-  margin-bottom: 35px;
-}
+
 .header-block .text p {
   font-size: 15px;
-  max-width: 400px;
+  max-width: 470px;
   transform: translateX(-50px);
   transition: transform 0.6s;
   text-align: justify;
   margin-bottom: 25px;
 }
-.header-block .text b {
-  color: var(--purple);
-  font-size: 20px;
-}
+
 .header-block button {
-  margin-right: 35px;
-  top: 100px;
-  left: 500px;
+  position: relative;
   display: inline-block;
   width: 150px;
   height: 50px;
@@ -217,13 +207,26 @@ nav .profile img {
   font-size: 1.1em;
   transition: 0.2s ease;
   font-weight: bold;
-  position: relative;
 }
 .header-block button:hover {
   background: var(--lightpurple);
   color: var(--purple);
   font-weight: bold;
   border: 2px solid var(--purple);
+}
+
+.header-block .edit-btn{
+  margin-right: 35px;
+  top: 100px;
+  left: 370px;
+
+}
+
+.header-block .delete-btn{
+  margin-right: 35px;
+  top: 50px;
+  left: 550px;
+
 }
 
 .editable-active {
@@ -320,3 +323,4 @@ footer .last {
     min-width: 80px;
   }
 }
+

@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon"href="/images/dcfavicon.png"type="image/x-icon"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="/css/profile.css" type="text/css" />
+    <link rel="stylesheet" href="/css/perfil.css" type="text/css" />
     <title>Perfil do Usuário | DeluxeCars</title>
-    <script type="text/javascript" src="../js/profile.js"></script>
+    <script type="text/javascript" src="../js/perfil.js"></script>
   </head>
   <body>
     <header>
@@ -17,13 +17,13 @@
         <a href="../html/mainpage.html"> <p class="brand"><i><strong>deluxe</strong>cars</i></p></a>
           <ul>
             <li>Olá, <%= user.name %></li>
-                <button class="profile">
-                  <img src="/images/profile_defaut.png" alt="Perfil do usuário"/>
+                <button class="perfil">
+                  <img src="/images/perfil_defaut.png" alt="Perfil do usuário"/>
                 </button>                    
           </ul>
         </nav>
         <div class="header-block">
-              <div class="text" id="userProfile">
+              <div class="text" id="userperfil">
                 <form action="/views/saveUserData" method="POST"> 
                   <div class="label-float">
                     <input type="text" id="nome" name="nome" placeholder="" required/>
@@ -46,13 +46,12 @@
                     <label id="labelConfirmSenha" for="confirmSenha">Senha (Confirmação)</label>
                     <i id="verConfirmSenha" class="fa fa-eye" aria-hidden="true"></i>
                   </div>
-                  
                   <button class="edit-btn" type="submit">Enviar dados atualizados</button> 
-                  <!-- <button class="del-btn" type="submit">Excluir cadastro</button> -->
               </form>
-              
+              <form action="/views/deleteUserData" method="POST">
+                    <button class="delete-btn" type="submit">Excluir cadastro</button>
+              </form>
             </div>
-         
       </div>
     </header>
     <footer>

@@ -87,16 +87,16 @@ nav ul button:hover {
   transition: background-color 0.3s, color 0.3s;
 }
 
-nav .profile {
+nav .perfil {
   border: none;
   background-color: transparent;
   cursor: pointer;
   padding: 0;
 }
-nav .profile:hover {
+nav .perfil:hover {
   background-color: transparent;
 }
-nav .profile img {
+nav .perfil img {
   width: 45px;
   height: 40x;
   border-radius: 50%;
