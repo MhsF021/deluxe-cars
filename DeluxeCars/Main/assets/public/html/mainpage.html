@@ -15,10 +15,15 @@
           <p class="brand"><i><strong>deluxe</strong>cars</i></p>
           <ul>
             <li><a href="#home">Homepage</i></a></li>
-            <li><a href="#sobre">Sobre</i></a></li>
+            <li><a href="./aboutus.html">Sobre</i></a></li>
             <li><a href="#mais">Mais</i></a></li>
-            <a href="/html/profile.html" type="text/href"><button class="profile"><img src="/images/profile_defaut.png" alt="Perfil do usuário"></button></a>
-            
+            <form action="/views/perfil" method="post">
+              <a id="perfilLink" href="../views/perfil.ejs" type="text/href">
+                <button class="perfil">
+                  <img src="/images/perfil_defaut.png" alt="Perfil do usuário">
+                </button>
+              </a>
+            </form>
           </ul>
         </nav>
         <div class="header-block">

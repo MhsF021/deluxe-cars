@@ -119,22 +119,3 @@ button:hover{
   color: var(--purple);
 }
 
-#msgError{
-  text-align: center;
-  color: #ffffff;
-  background-color: red;
-  padding: 10px;
-  border-radius: 4px;
-  display: none;
-}
-
-#msgSuccess{
-  text-align: center;
-  color: #ffffff;
-  background-color: lightgreen;
-  padding: 10px;
-  border-radius: 4px;
-  display: none;
-}
-
-

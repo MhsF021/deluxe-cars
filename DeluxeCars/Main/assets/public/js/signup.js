@@ -40,9 +40,9 @@ nome.addEventListener('keyup', () => {
 })
 
 usuario.addEventListener('keyup', () => {
-  if(usuario.value.length <= 4 || usuario.value.length >=6 || !/^\d+$/.test(usuario.value)){
+  if(usuario.value.length <= 4 || usuario.value.length >= 15){
     labelUsuario.setAttribute('style', 'color: red')
-    labelUsuario.innerHTML = 'Insira uma sequência de 5 números'
+    labelUsuario.innerHTML = 'Insira um usuário válido'
     usuario.setAttribute('style', 'border-color: red')
     validUsuario = false
   } else {

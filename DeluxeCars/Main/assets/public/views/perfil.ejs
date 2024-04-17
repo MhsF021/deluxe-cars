@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon"href="/images/dcfavicon.png"type="image/x-icon"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/perfil.css" type="text/css" />
+    <title>Perfil do Usuário | DeluxeCars</title>
+    <script type="text/javascript" src="../js/perfil.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="content">
+        <nav>
+        <a href="../html/mainpage.html"> <p class="brand"><i><strong>deluxe</strong>cars</i></p></a>
+          <ul>
+            <li>Olá, <%= user.name %></li>
+                <button class="perfil">
+                  <img src="/images/perfil_defaut.png" alt="Perfil do usuário"/>
+                </button>                    
+          </ul>
+        </nav>
+        <div class="header-block">
+              <div class="text" id="userperfil">
+                <form action="/views/saveUserData" method="POST"> 
+                  <div class="label-float">
+                    <input type="text" id="nome" name="nome" placeholder="" required/>
+                    <label id="labelNome" for="nome"><%= user.name %></label>
+                  </div>
+
+                  <div class="label-float">
+                    <input type="text" id="email" name="email" placeholder="" required/>
+                    <label id="labelEmail" for="email"><%= user.email %></label>
+                  </div>
+
+                  <div class="label-float">
+                    <input type="password" id="senha" name="senha" placeholder=" " required/>
+                    <label id="labelSenha" for="senha">Senha</label>
+                    <i id="verSenha" class="fa fa-eye" aria-hidden="true"></i>
+                  </div>
+
+                  <div class="label-float">
+                    <input type="password" id="confirmSenha" name="confirmSenha" placeholder=" " required/>
+                    <label id="labelConfirmSenha" for="confirmSenha">Senha (Confirmação)</label>
+                    <i id="verConfirmSenha" class="fa fa-eye" aria-hidden="true"></i>
+                  </div>
+                  <button class="edit-btn" type="submit">Enviar dados atualizados</button> 
+              </form>
+              <form action="/views/deleteUserData" method="POST">
+                    <button class="delete-btn" type="submit">Excluir cadastro</button>
+              </form>
+            </div>
+      </div>
+    </header>
+    <footer>
+      <div class="main">
+        <div class="content footer-links">
+          <div class="footer-deluxecars">
+            <h4>DeluxeCars</h4>
+            <h6>Todos os direitos reservados</h6> 
+            <h6>pelos criadores deste conteúdo.</h6>
+          </div>
+          <div class="footer-social">
+            <h4>Siga-nos nas redes sociais!</h4>
+            <div class="social-icons">vg" alt="Facebook"/><p>facebook.com/deluxecars</p></a>
+            </div>
+            <div>
+              <a href="https://github.com/MhsF021"><img src="/images/instagram.png" alt="Instagram"/><p>instagram.com/deluxecars</p></a>
+            </div>
+          </div>
+          <div class="footer-contato">
+            <h4>Contate-nos!</h4>
+            <h6>+55 (81) 98183-5196</h6>
+            <h6>math.ferreira021@gmail.com</h6>
+            <h6>Jonathas de Vasconcelos, 750, Boa Viagem (Recife-PE)</h6>
+            <h6>Código Postal: 51021-140</h6>
+            <h6>github.com/MhsF021</h6>
+          </div>
+        </div>
+      </div>
+      <div class="last">Viva com estilo!</div>
+    </footer>
+    </body>
+</html>

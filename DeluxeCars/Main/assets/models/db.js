@@ -6,7 +6,6 @@ const sequelize = new Sequelize(
     host: 'localhost',
     dialect: 'mysql'
   });
-// ^----------------------------------- ^ conexão com o banco ^ -----------------------------------^
 
 // Verifica se a conexão está OK
 //   sequelize.authenticate()
