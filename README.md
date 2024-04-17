@@ -14,6 +14,6 @@ Ainda está em desenvolvimento e aos poucos vou melhorando até obter o resultad
 ## Configuração
 
 Para começar é bem simples, basta apenas clonar o repositório na sua máquina local e começar a editar.
-Lembre-se de personalizar de acordo com as informações específicas do seu projeto e acrescentar seções que achar necessário, como "FAQ" por exemplo.
+O projeto deve ser iniciado após entrar no diretório "assets". Após estar ali dentro, teremos algumas extensões e bibliotecas a serem baixadas e instaladas para a execução. Após encontrar o diretório "assets", basta dar um comando 'npm install' e o que é necessário para utilizar será baixado. Para verificar quais foram as extensões/bibliotecas utilizadas, você poderá consultar o arquivo package.json.
 Agradeço pela atenção.
 
